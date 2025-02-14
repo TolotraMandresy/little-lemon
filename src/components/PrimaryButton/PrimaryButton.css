@@ -1,0 +1,5 @@
+button{
+    --max-width : full-content;
+
+    max-width: var(--max-width);
+}
