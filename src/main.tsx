@@ -1,10 +1,10 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import './assets/styles/index.css'
+import PrimaryButton from './components/PrimaryButton/PrimaryButton'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <PrimaryButton style={{'--max-width': '400px'}} label='Login' className="text-red-600"></PrimaryButton>
   </StrictMode>,
 )
