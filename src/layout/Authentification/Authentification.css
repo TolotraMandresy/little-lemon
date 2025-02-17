@@ -1,3 +1,10 @@
+.illustr-container{
+    mask-image: url('../../../public/img/mask.svg');
+    mask-size: 100%;
+    mask-repeat: no-repeat;
+    mask-position: bottom;
+}
+
 #top-logo{
     background-color: rgba(255, 255, 255, 0.651);
 }
