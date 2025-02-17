@@ -13,8 +13,8 @@ export default function Login() {
                     <Formik
                         initialValues={{ email: '', password: '' }}
 
-                        validateOnBlur={true}
-                        validateOnChange={false}
+                        // validateOnBlur={true}
+                        // validateOnChange={false}
 
                         validate={values => {
                             const error = {} as { [key: string]: string };
@@ -22,7 +22,7 @@ export default function Login() {
                             (Object.keys(values) as unknown as ('email' | 'password')[]).forEach((input) => {
                                 if (!values[input])
                                     error[input] = "It is required!"
-                                else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email))
+                                else if (input == "email" && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email))
                                     error.email = "Invalid email address"
                             })
 

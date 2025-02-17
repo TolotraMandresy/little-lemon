@@ -1,8 +1,8 @@
 .illustr-container{
     mask-image: url('../../../public/img/mask.svg');
-    mask-size: 100%;
+    mask-size: cover;
     mask-repeat: no-repeat;
-    mask-position: bottom;
+    mask-position: center bottom;
 }
 
 #top-logo{
