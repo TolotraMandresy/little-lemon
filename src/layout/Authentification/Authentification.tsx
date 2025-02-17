@@ -12,7 +12,7 @@ export default function Authentification({ children }: { children: React.ReactNo
                 </div>
             </div>
 
-            <div className='h-full border border-4 w-full max-w-[350px]'>
+            <div className='h-full w-full max-w-[350px] justify-between px-4'>
                 {children}
             </div>
         </div>

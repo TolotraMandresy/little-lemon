@@ -1,3 +1,9 @@
 #top-logo{
     background-color: rgba(255, 255, 255, 0.651);
 }
+
+.line{
+    height: 0;
+    width: 40%;
+    border-bottom: 2px solid var(--color-c-grey);
+}
