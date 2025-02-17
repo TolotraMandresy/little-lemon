@@ -36,7 +36,7 @@ export default function Login() {
                             }, 400);
                         }}>
 
-                        {({ isSubmitting, errors, touched }) => (
+                        {({ isSubmitting, errors, touched,  }) => (
                             <Form className="flex flex-col gap-2">
                                 <div className="flex flex-col gap-1">
                                     <label htmlFor="email" className="font-semibold text-lg">Email:</label>
@@ -45,7 +45,7 @@ export default function Login() {
                                         name="email"
                                         id="emailIpt"
                                         placeholder="Enter your email..."
-                                        className={`outline-2 rounded-sm py-2 px-3 placeholder:text-c-grey ${(touched.email && errors.email) ? "outline-red-500" : "outline-c-grey focus:outline-c-yellow"}`} />
+                                        className={`outline-2 rounded-sm py-2 px-3 placeholder:text-c-grey ${(touched.email && errors.email) ? "outline-red-500" : "outline-c-grey"} focus:outline-c-yellow`} />
                                     <p className="text-red-500 text-sm">{(touched.email && errors.email) || "\u00A0"}</p>
                                 </div>
 
@@ -55,7 +55,7 @@ export default function Login() {
                                         type="password"
                                         name="password"
                                         placeholder="Enter your password..."
-                                        className={`outline-2 rounded-sm py-2 px-3 placeholder:text-c-grey ${(touched.password && errors.password) ? "outline-red-500" : "outline-c-grey focus:outline-c-yellow"}`} />
+                                        className={`outline-2 rounded-sm py-2 px-3 placeholder:text-c-grey ${(touched.password && errors.password) ? "outline-red-500" : "outline-c-grey"} focus:outline-c-yellow`} />
                                     <p className="text-red-500 text-sm">{(touched.password && errors.password) || "\u00A0"}</p>
                                     <a href="#" className="w-full text-right underline">Forgot your password?</a>
                                 </div>
