@@ -1,6 +1,6 @@
 import './PrimaryButton.css'
 
-export default function PrimaryButton(props: { label: string, className: string, [k: string]: unknown }) {
+export default function PrimaryButton(props: { label: string, className?: string, [k: string]: unknown }) {
     const { label, className, ...remainingProps } = props;
 
     return (

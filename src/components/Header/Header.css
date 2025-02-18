@@ -1,0 +1,15 @@
+header button:hover{
+    border: .18rem solid var(--color-c-green);
+}
+
+nav{
+    top: 0;
+    left: -100lvw;
+    transform: translateX(0);
+
+    transition: transform ease-in-out .5s;
+}
+
+nav.isOpen{
+    transform: translateX(100%);
+}
