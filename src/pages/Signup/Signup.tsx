@@ -28,7 +28,7 @@ export default function Signup() {
 
     return (
         <Authentification>
-            <div className="flex flex-col h-full justify-evenly gap-8 py-4">
+            <div className="flex flex-col w-full h-full justify-evenly gap-8 py-4">
                 <h1 className="w-full text-center font-semibold text-7xl text-c-yellow self-start">Sign Up</h1>
 
                 <div className="flex flex-col">
@@ -127,9 +127,8 @@ export default function Signup() {
                                         className={`outline-2 rounded-sm py-2 px-3 placeholder:text-c-grey ${(errors.confirm && touched.confirm) ? "outline-red-500" : " focus:outline-c-yellow outline-c-grey"}`} />
                                     <p className="text-red-500 text-sm">{(touched.confirm && errors.confirm) || "\u00A0"}</p>
                                 </div>
-                                <p>{isValuesValid(touched, errors).toString()}</p>
 
-                                <PrimaryButton label="Sign Up" type="submit" className="mt-8 disabled:bg-c-grey" disabled={isSubmitting || isValuesValid(touched, errors)} />
+                                <PrimaryButton label="Sign Up" type="submit" className="mt-8 md:sticky bottom-0" disabled={isSubmitting || isValuesValid(touched, errors)} />
                             </Form>
                         )}
 

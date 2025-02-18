@@ -11,6 +11,12 @@
 
 .line{
     height: 0;
-    width: 40%;
+    width: 30%;
     border-bottom: 2px solid var(--color-c-grey);
 }
+
+@media (width >= 48rem) { 
+    .illustr-container{
+        mask-image: none;
+    }
+ }
