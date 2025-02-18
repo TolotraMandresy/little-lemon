@@ -1,8 +1,9 @@
 /* button svg>path, */
-button svg>path{
+button svg>path {
     fill: var(--color-c-green);
 }
 
-button:hover svg>path{
+button:hover svg>path,
+button:focus svg>path {
     fill: var(--color-c-font-secondary)
 }
