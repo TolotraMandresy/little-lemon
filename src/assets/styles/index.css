@@ -14,11 +14,12 @@
 :root {
   /* font-size: 12px;   */
   font-family: karla, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
   font-weight: 400;
 
   /* color-scheme: light dark; */
   color: var(--color-c-font);
+  font-weight: 200;
+  line-height: 1.3em;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
