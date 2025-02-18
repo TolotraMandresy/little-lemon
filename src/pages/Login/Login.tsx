@@ -43,9 +43,9 @@ export default function Login() {
                                     <Field
                                         type="email"
                                         name="email"
-                                        id="emailIpt"
+                                        id="email"
                                         placeholder="Enter your email..."
-                                        className={`outline-2 rounded-sm py-2 px-3 placeholder:text-c-grey ${(touched.email && errors.email) ? "outline-red-500" : "outline-c-grey"} focus:outline-c-yellow`} />
+                                        className={`outline-2 rounded-sm py-2 px-3 placeholder:text-c-grey ${touched.email && errors.email ? "outline-red-500" : "outline-c-grey focus:outline-c-yellow"}`} />
                                     <p className="text-red-500 text-sm">{(touched.email && errors.email) || "\u00A0"}</p>
                                 </div>
 
@@ -54,8 +54,9 @@ export default function Login() {
                                     <Field
                                         type="password"
                                         name="password"
+                                        id="password"
                                         placeholder="Enter your password..."
-                                        className={`outline-2 rounded-sm py-2 px-3 placeholder:text-c-grey ${(touched.password && errors.password) ? "outline-red-500" : "outline-c-grey"} focus:outline-c-yellow`} />
+                                        className={`outline-2 rounded-sm py-2 px-3 placeholder:text-c-grey ${touched.password && errors.password ? "outline-red-500" : "outline-c-grey focus:outline-c-yellow"}`} />
                                     <p className="text-red-500 text-sm">{(touched.password && errors.password) || "\u00A0"}</p>
                                     <a href="#" className="w-full text-right underline">Forgot your password?</a>
                                 </div>
