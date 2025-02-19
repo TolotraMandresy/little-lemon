@@ -17,15 +17,15 @@ export default function Header({className} : {className?: string}) {
         <>
             <header className={`flex justify-between items-center ${className} bg-c-font-secondary z-10`}>
                 <button name="open sidebar" onClick={open} className="aspect-square p-2 w-15 flex justify-center items-center rounded-sm">
-                    <img src="../../../public/icons_assets/icon _hamburger menu_.svg" alt="Menu icon" />
+                    <img src="/icons_assets/icon _hamburger menu_.svg" alt="Menu icon" />
                 </button>
 
                 <div className="h-full w-auto px-4 py-2">
-                    <img src="../../../public/icons_assets/Logo.svg" className='m-auto' alt="logo" />
+                    <img src="/icons_assets/Logo.svg" className='m-auto' alt="logo" />
                 </div>
 
                 <button name="Basket" className="aspect-square p-2 w-14 flex justify-center items-center rounded-sm">
-                    <img src="../../../public/icons_assets/Basket.svg" className='m-auto' alt="logo" />
+                    <img src="/icons_assets/Basket.svg" className='m-auto' alt="logo" />
                 </button>
             </header>
 
