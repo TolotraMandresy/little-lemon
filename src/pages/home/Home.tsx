@@ -1,6 +1,7 @@
 import PrimaryButton from "../../components/PrimaryButton/PrimaryButton";
 import WithHeader from "../../layout/WithHeader/WithHeader";
 import './Home.css'
+import MenuCategory from "./sections/MenuCategory/MenuCategory";
 
 export default function Home() {
     return (
@@ -24,6 +25,8 @@ export default function Home() {
                     <img className="w-full h-max aspect-square rounded-sm" src="/img/restauranfood.jpg" alt="foods" />
                 </div>
             </div>
+
+            <MenuCategory/>
         </WithHeader>
     )
 }
