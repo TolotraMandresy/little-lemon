@@ -2,6 +2,7 @@ import PrimaryButton from "../../components/PrimaryButton/PrimaryButton";
 import WithHeader from "../../layout/WithHeader/WithHeader";
 import './Home.css'
 import MenuCategory from "./sections/MenuCategory/MenuCategory";
+import CategoryProvider from "../../provider/CategoryProvider";
 
 export default function Home() {
     return (
@@ -19,14 +20,17 @@ export default function Home() {
                         We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.
                     </p>
 
-                    <PrimaryButton label="Reserve a table" className="mt-12" style={{'max-width': 'max-content'}}/>
+                    <PrimaryButton label="Reserve a table" className="mt-12" style={{ 'max-width': 'max-content' }} />
                 </div>
                 <div className="flex items-center w-[40%] max-w-[180px] translate-y-3">
-                    <img className="w-full h-max aspect-square rounded-sm" src="/img/restauranfood.jpg" alt="foods" />
+                    <img className="w-full h-max aspect-square rounded-sm" src="/img/restauranfood_20.webp" alt="foods" />
                 </div>
             </div>
 
-            <MenuCategory/>
+            <CategoryProvider>
+                <MenuCategory />
+
+            </CategoryProvider>
         </WithHeader>
     )
 }
