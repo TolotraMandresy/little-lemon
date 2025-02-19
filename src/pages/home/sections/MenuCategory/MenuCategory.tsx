@@ -3,9 +3,7 @@ import { categList, ICategoryContext, useCategContext } from "../../../../provid
 
 export default function MenuCategory() {
     const 
-        { selectedCateg, addCategory, removeCategory } = useCategContext() as ICategoryContext
-        console.log(selectedCateg);
-        
+        { selectedCateg, addCategory, removeCategory } = useCategContext() as ICategoryContext        
 
     return (
         <div className="flex gap-2 w-full overflow-auto">
