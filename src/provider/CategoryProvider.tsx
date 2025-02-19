@@ -45,5 +45,7 @@ const CategoryProvider = ({ children }: { children: React.ReactNode }) => {
 };
 
 export default CategoryProvider;
+// eslint-disable-next-line react-refresh/only-export-components
 export const useCategContext = () => useContext(CategoryContext);
+// eslint-disable-next-line react-refresh/only-export-components
 export const categList = ["Lunch", "Mains", "Desserts", "A la carte", "Specials"]
