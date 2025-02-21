@@ -14,7 +14,7 @@ export default function WithHeader({ children, className }: { children: React.Re
     });
 
     return (
-        <div className={`flex flex-col items-center h-lvh overflow-auto gap-4`}>
+        <div className={`flex flex-col items-center h-lvh overflow-auto gap-4 px-2`}>
             <Header className={`sticky top-0 ${className} px-0!`}></Header>
 
             <main className={`flex flex-col items-center gap-4 w-full z-0 ${className}`}>
