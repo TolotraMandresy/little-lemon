@@ -15,7 +15,7 @@ export default function Header({className} : {className?: string}) {
 
     return (
         <>
-            <header className={`flex justify-between items-center ${className} bg-c-font-secondary z-10`}>
+            <header className={`flex w-full justify-between items-center bg-c-font-secondary z-10 ${className}`}>
                 <button name="open sidebar" onClick={open} className="aspect-square p-2 w-15 flex justify-center items-center rounded-sm">
                     <img src="/icons_assets/icon _hamburger menu_.svg" alt="Menu icon" />
                 </button>

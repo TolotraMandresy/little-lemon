@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from "react";
+import React, { createContext, useContext, useReducer } from "react";
 
 export interface ICategoryContext {
     selectedCateg: Set<string>;
@@ -8,7 +8,7 @@ export interface ICategoryContext {
 
 const CategoryContext = createContext<ICategoryContext | null>(null);
 
-const CategoryProvider = ({ children }: { children: React.ReactNode }) => {
+const CategoryProvider = ({ children, className }: { children: React.ReactNode, className?: string }) => {
     function setSelectedReducer(state: Set<string>, action: { type: 'add' | 'remove'; element: string }): Set<string> {
         const newState = new Set(state)
 
@@ -37,9 +37,18 @@ const CategoryProvider = ({ children }: { children: React.ReactNode }) => {
         removeCategory,
     };
 
+    const childrenWithProps = React.Children.map(children, (child) => {
+        if (React.isValidElement(child)) {
+            const mergedClasses = `${child.props.className || ''} ${className?.replace(/\bpx-[^\s]*/g, '')}`;
+            return React.cloneElement(child, { className: mergedClasses.trim() });
+        }
+
+        return child;
+    });
+
     return (
         <CategoryContext.Provider value={contextValue}>
-            {children}
+            {childrenWithProps}
         </CategoryContext.Provider>
     );
 };

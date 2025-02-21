@@ -6,9 +6,9 @@ import CategoryProvider from "../../provider/CategoryProvider";
 
 export default function Home() {
     return (
-        <WithHeader>
-            <div className="flex flex-row gap-4 justify-evenly border px-2 py-8 relative">
-                <img id="bgimg" src="/img/illustr.webp" className="absolute -z-0 top-0 left-0 w-full h-full" alt="illustration" />
+        <WithHeader className="max-w-[900px] px-2">
+            <div className="flex flex-row w-full gap-4 justify-between px-4 py-8 relative">
+                <img id="bgimg" src="/img/illustr.webp" className="rounded-md absolute -z-0 top-0 left-0 w-screen h-full" alt="illustration" />
 
                 <div className="flex flex-col gap-4 w-[60%] max-w-[250px] z-0" id="banner">
                     <div className="flex flex-col">
@@ -20,7 +20,7 @@ export default function Home() {
                         We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.
                     </p>
 
-                    <PrimaryButton label="Reserve a table" className="mt-12" style={{ 'max-width': 'max-content' }} />
+                    <PrimaryButton label="Reserve a table" className="mt-12" style={{ 'maxWidth': 'max-content' }} />
                 </div>
                 <div className="flex items-center w-[40%] max-w-[180px] translate-y-3">
                     <img className="w-full h-max aspect-square rounded-sm" src="/img/restauranfood_20.webp" alt="foods" />
