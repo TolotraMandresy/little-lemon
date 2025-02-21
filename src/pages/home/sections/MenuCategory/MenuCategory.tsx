@@ -1,5 +1,5 @@
 import Category from "../../../../components/Category/Category";
-import { categList, ICategoryContext, useCategContext } from "../../../../provider/CategoryProvider";
+import { categList, ICategoryContext, useCategContext } from "../../../../provider/CategoryProvider/CategoryProvider";
 
 export default function MenuCategory({className} : {className?: string}) {
     const 

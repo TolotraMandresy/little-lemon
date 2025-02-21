@@ -2,7 +2,8 @@ import PrimaryButton from "../../components/PrimaryButton/PrimaryButton";
 import WithHeader from "../../layout/WithHeader/WithHeader";
 import './Home.css'
 import MenuCategory from "./sections/MenuCategory/MenuCategory";
-import CategoryProvider from "../../provider/CategoryProvider";
+import CategoryProvider from "../../provider/CategoryProvider/CategoryProvider";
+import Meals from "./sections/Meals/Meals";
 
 export default function Home() {
     return (
@@ -29,7 +30,7 @@ export default function Home() {
 
             <CategoryProvider>
                 <MenuCategory />
-
+                <Meals/>
             </CategoryProvider>
         </WithHeader>
     )
