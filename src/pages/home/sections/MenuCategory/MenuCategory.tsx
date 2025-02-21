@@ -7,6 +7,8 @@ export default function MenuCategory() {
 
     return (
         <div className="flex gap-2 w-full overflow-auto">
+            <p className="font-bold">Order for delivery!</p>
+
             {categList.map(element => (
                 <Category label={element} key={element} addCategory={addCategory} removeCategory={removeCategory} isChecked={selectedCateg.has(element)}/>
             ))}
