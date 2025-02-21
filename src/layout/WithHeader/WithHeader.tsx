@@ -7,7 +7,7 @@ export default function WithHeader({ children, className }: { children: React.Re
     const childrenWithProps = React.Children.map(children, (child) => {
         if (React.isValidElement(child)) {
             const mergedClasses = `${child.props.className || ''} ${className}`;
-            return React.cloneElement(child, { className: mergedClasses.trim() });
+            return React.cloneElement(child, { className: mergedClasses.trim() } as React.HTMLAttributes<HTMLElement>);
         }
         
         return child;

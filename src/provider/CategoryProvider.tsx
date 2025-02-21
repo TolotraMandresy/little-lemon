@@ -40,7 +40,7 @@ const CategoryProvider = ({ children, className }: { children: React.ReactNode, 
     const childrenWithProps = React.Children.map(children, (child) => {
         if (React.isValidElement(child)) {
             const mergedClasses = `${child.props.className || ''} ${className?.replace(/\bpx-[^\s]*/g, '')}`;
-            return React.cloneElement(child, { className: mergedClasses.trim() });
+            return React.cloneElement(child, { className: mergedClasses.trim() } as React.HTMLAttributes<HTMLElement>);
         }
 
         return child;
