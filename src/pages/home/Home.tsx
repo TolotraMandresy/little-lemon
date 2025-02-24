@@ -4,6 +4,7 @@ import './Home.css'
 import MenuCategory from "./sections/MenuCategory/MenuCategory";
 import CategoryProvider from "../../provider/CategoryProvider/CategoryProvider";
 import Meals from "./sections/Meals/Meals";
+import BottomSheet from "../../components/BottomSheet/BottomSheet";
 
 export default function Home() {
     return (
@@ -32,6 +33,8 @@ export default function Home() {
                 <MenuCategory />
                 <Meals/>
             </CategoryProvider>
+
+            <BottomSheet/>
         </WithHeader>
     )
 }
