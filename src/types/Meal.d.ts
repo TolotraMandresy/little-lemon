@@ -2,5 +2,6 @@ type Meal = {
     name: string, 
     descri: string,
     price: string,
-    img: string
+    img: string,
+    type: string
 }

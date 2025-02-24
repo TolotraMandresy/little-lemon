@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import CategoryProvider , { ICategoryContext, useCategContext, categList } from "../CategoryProvider";
+import CategoryProvider , { ICategoryContext, useCategContext, categList } from "../CategoryProvider.tsx";
 
 // Mock Component to Test the Context
 const CategoryTestComponent = () => {
