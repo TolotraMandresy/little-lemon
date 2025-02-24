@@ -21,8 +21,8 @@ export default function BottomSheet() {
                 <Sheet.Container>
                     <Sheet.Header></Sheet.Header>
 
-                    <Sheet.Content className="px-6 pb-6"> {/* Increased padding */}
-                        <p className="font-bold text-xl text-center pb-6 relative"> {/* Increased padding */}
+                    <Sheet.Content className="px-6 pb-6">
+                        <p className="font-bold text-xl text-center pb-6 relative">
                             Reserve a table
                         </p>
 
@@ -46,8 +46,11 @@ export default function BottomSheet() {
                                         | "time"
                                         | "guests"
                                         | "email"
+                                        | "specialReq"
                                     )[]
                                 ).forEach((input) => {
+                                    if(input == "specialReq") return
+
                                     if (!values[input]) error[input] = "It is required!";
                                     else if (
                                         input === "email" &&
@@ -77,60 +80,60 @@ export default function BottomSheet() {
                                 }, 400);
                             }}
                         >
-                            {({ isSubmitting, errors, touched }) => (
+                            {({ isSubmitting,values,  errors, touched, setFieldValue }) => (
                                 <Form className="grid w-full grid-cols-[120px_minmax(auto,_1fr)] gap-6 align-middle">
                                     <label className="font-semibold text-lg">Seating:</label>
                                     <div className="flex items-center gap-10">
                                         <label className="flex items-center space-x-2">
-                                            <Field type="radio" name="seating" value="indoor" />
+                                            <Field type="radio" name="seating" value="indoor" id="indoor" checked={values.seating == "indoor"} onchange={()=>setFieldValue("seating", "indoor")}/>
                                             <span>Indoor</span>
                                         </label>
                                         <label className="flex items-center space-x-2">
-                                            <Field type="radio" name="seating" value="outdoor" />
+                                            <Field type="radio" name="seating" value="outdoor" id="outdoor" checked={values.seating == "outdoor"} onchange={()=>setFieldValue("seating", "outdoor")}/>
                                             <span>Outdoor</span>
                                         </label>
-                                        {/* <p className="text-red-500 text-sm">
-                                            {(touched.guests && errors.guests) || "\u00A0"}
-                                        </p> */}
                                     </div>
 
-                                    {/* Datetime */}
-                                    <label className="font-semibold text-lg py-1">
-                                        Date & time:
-                                    </label>
+                                    <label className="font-semibold text-lg" htmlFor="date">Date:</label>
                                     <div className="flex flex-col gap-1">
-                                        <div className="flex gap-2 w-full">
-                                            <Field
-                                                type="date" // Change to text for placeholder
-                                                name="dateTime"
-                                                placeholder="Date"
-                                                className={`outline-none rounded-md py-2 px-3 w-[55%] placeholder:text-gray-400 border border-gray-300 ${touched.date && errors.date
-                                                    ? "border-red-500"
-                                                    : "border-gray-300 "
-                                                    }`}
-                                            />
-                                            <span className="text-gray-400 align-middle h-max m-auto">-</span>
-                                            <Field
-                                                type="text"
-                                                placeholder="--:--"
-                                                name="dateTime"
-                                                className={`outline-none rounded-md py-2 px-3 w-[45%] placeholder:text-gray-400 border border-gray-300 ${touched.time && errors.time
-                                                    ? "border-red-500"
-                                                    : "border-gray-300 "
-                                                    }`}
-                                            />
-                                        </div>
+                                        <Field
+                                            type="date"
+                                            name="date"
+                                            id="date"
+                                            placeholder="For the reservation confirmation/reminder"
+                                            className={`outline-none rounded-md py-2 px-3 placeholder:text-gray-400 border border-gray-300 ${touched.date && errors.date
+                                                ? "border-red-500"
+                                                : "border-gray-300 "
+                                                }`}
+                                        />
                                         <p className="text-red-500 text-sm">
-                                            {(touched.date && errors.date && touched.time && errors.time) || "\u00A0"}
+                                            {(touched.date && errors.date) || "\u00A0"}
                                         </p>
                                     </div>
 
-                                    {/* Guests */}
-                                    <label className="font-semibold text-lg py-1">Guests:</label>
+                                    <label className="font-semibold text-lg" htmlFor="time">Time:</label>
+                                    <div className="flex flex-col gap-1">
+                                        <Field
+                                            type="time"
+                                            name="time"
+                                            id="time"
+                                            placeholder="For the reservation confirmation/reminder"
+                                            className={`outline-none rounded-md py-2 px-3 placeholder:text-gray-400 border border-gray-300 ${touched.time && errors.time
+                                                ? "border-red-500"
+                                                : "border-gray-300 "
+                                                }`}
+                                        />
+                                        <p className="text-red-500 text-sm">
+                                            {(touched.time && errors.time) || "\u00A0"}
+                                        </p>
+                                    </div>
+
+                                    <label className="font-semibold text-lg py-1" htmlFor="guests">Guests:</label>
                                     <div className="flex flex-col gap-1">
                                         <Field
                                             type="number"
                                             name="guests"
+                                            id="guests"
                                             placeholder="How many seats for the reservation"
                                             className={`outline-none rounded-md py-2 px-3 placeholder:text-gray-400 border border-gray-300 ${touched.guests && errors.guests
                                                 ? "border-red-500"
@@ -142,12 +145,12 @@ export default function BottomSheet() {
                                         </p>
                                     </div>
 
-                                    {/* Email */}
-                                    <label className="font-semibold text-lg">Email:</label>
+                                    <label className="font-semibold text-lg py-1" htmlFor="email">Email:</label>
                                     <div className="flex flex-col gap-1">
                                         <Field
                                             type="email"
                                             name="email"
+                                            id="email"
                                             placeholder="For the reservation confirmation/reminder"
                                             className={`outline-none rounded-md py-2 px-3 placeholder:text-gray-400 border border-gray-300 ${touched.email && errors.email
                                                 ? "border-red-500"
@@ -159,29 +162,23 @@ export default function BottomSheet() {
                                         </p>
                                     </div>
 
-                                    {/* Special Request */}
                                     <div className="flex flex-col col-span-2 gap-1">
-                                        <label className="font-semibold text-lg">
+                                        <label className="font-semibold text-lg py-1" htmlFor="specialReq">
                                             Special request:
                                         </label>
                                         <Field
                                             as="textarea"
                                             name="specialReq"
+                                            id="specialReq"
                                             placeholder="Your request"
-                                            className={`outline-none rounded-md py-2 px-3 placeholder:text-gray-400 border border-gray-300 w-full h-24 resize-none ${touched.specialReq && errors.specialReq
-                                                ? "border-red-500"
-                                                : "border-gray-300 "
-                                                }`}
+                                            className={`outline-none rounded-md py-2 px-3 placeholder:text-gray-400 border border-gray-300 w-full h-24 resize-none`}
                                         />
-                                        <p className="text-red-500 text-sm">
-                                            {(touched.specialReq && errors.specialReq) || "\u00A0"}
-                                        </p>
                                     </div>
-
+                                    
                                     <PrimaryButton
                                         label="Reserve a table"
                                         type="submit"
-                                        className="col-span-2 mt-8 md:sticky bottom-0 col-span-1 bg-yellow-400 text-black rounded-full" // Updated button styles
+                                        className="col-span-2 mt-8 md:sticky bottom-0 col-span-1 bg-yellow-400 text-black rounded-full"
                                         disabled={
                                             isSubmitting ||
                                             Object.keys(touched).length === 0 ||
