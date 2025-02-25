@@ -28,7 +28,7 @@ export default function BottomSheet() {
 
                         <Formik
                             initialValues={{
-                                seating: "",
+                                seating: "indoor",
                                 date: "",
                                 time: "",
                                 guests: "",
