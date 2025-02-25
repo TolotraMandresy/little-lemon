@@ -47,16 +47,13 @@ describe("CategoryProvider", () => {
             </CategoryProvider>
         );
 
-        // Initially, no categories should be selected
         expect(screen.queryByTestId("selected-categories")?.textContent).toBe("");
 
-        // Add "Lunch" category
         const addLunchButton = screen.getByTestId("add-Lunch");
         fireEvent.click(addLunchButton);
 
-        // After adding, "Lunch" should be in the selected categories
         expect(screen.getByText("Lunch").firstChild?.textContent).toBe("Lunch");
-        console.assert(false, screen.getByText("Lunch").firstChild?.textContent);
+        // console.assert(false, screen.getByText("Lunch").firstChild?.textContent);
         
     });
 
@@ -88,7 +85,6 @@ describe("CategoryProvider", () => {
             </CategoryProvider>
         );
 
-        // Add "Lunch" and "Specials" categories
         const addLunchButton = screen.getByTestId("add-Lunch");
         const addSpecialsButton = screen.getByTestId("add-Specials");
         fireEvent.click(addLunchButton);

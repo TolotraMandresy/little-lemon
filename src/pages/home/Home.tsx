@@ -6,8 +6,11 @@ import CategoryProvider from "../../provider/CategoryProvider/CategoryProvider";
 import Meals from "./sections/Meals/Meals";
 import BottomSheet from "../../components/BottomSheet/BottomSheet";
 import Toast from "../../components/Toast/Toast";
+import SheetOpenProvider, { ISheetIsOpenContext, useSheetOpenContext } from "../../provider/SheetOpenProvider/SheetOpenProvider";
 
-export default function Home() {
+function Content() {
+    const { openSheet, isSheetOpen } = useSheetOpenContext() as ISheetIsOpenContext;
+
     return (
         <WithHeader className="max-w-[900px] px-2">
             <div className="flex flex-row w-full gap-4 justify-between px-4 py-8 relative">
@@ -23,7 +26,7 @@ export default function Home() {
                         We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.
                     </p>
 
-                    <PrimaryButton label="Reserve a table" className="mt-12" style={{ 'maxWidth': 'max-content' }} />
+                    <PrimaryButton onClick={openSheet} label="Reserve a table" className="mt-12" style={{ 'maxWidth': 'max-content' }} />
                 </div>
                 <div className="flex items-center w-[40%] max-w-[180px] translate-y-3">
                     <img className="w-full h-max aspect-square rounded-sm" src="/img/restauranfood_20.webp" alt="foods" />
@@ -32,12 +35,21 @@ export default function Home() {
 
             <CategoryProvider>
                 <MenuCategory />
-                <Meals/>
+                <Meals />
             </CategoryProvider>
-
-            <BottomSheet/>
-
-            <Toast isOpen={true} message="We registered your reservation."/>
+            <BottomSheet />
         </WithHeader>
+    )
+}
+
+export default function Home() {
+    return (
+        <>
+            <SheetOpenProvider>
+                <Content />
+            </SheetOpenProvider>
+
+            <Toast isOpen={true} message="We registered your reservation." />
+        </>
     )
 }
