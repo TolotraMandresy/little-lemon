@@ -5,6 +5,7 @@ import MenuCategory from "./sections/MenuCategory/MenuCategory";
 import CategoryProvider from "../../provider/CategoryProvider/CategoryProvider";
 import Meals from "./sections/Meals/Meals";
 import BottomSheet from "../../components/BottomSheet/BottomSheet";
+import Toast from "../../components/Toast/Toast";
 
 export default function Home() {
     return (
@@ -35,6 +36,8 @@ export default function Home() {
             </CategoryProvider>
 
             <BottomSheet/>
+
+            <Toast isOpen={true} message="We registered your reservation."/>
         </WithHeader>
     )
 }
