@@ -13,7 +13,7 @@ export const categList = ["Lunch", "Mains", "Desserts", "A la carte", "Specials"
 const meals: Meal[] = [
     { name: "Greak Salad", descri: "The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons.", price: "4$", img: "/img/greek-salad.jpg", type: "Specials" },
     { name: "Pasta", descri: "Delicious pasta", price: "10$", img: "/img/pasta.jpg", type: "Mains" },
-    { name: "Cake", descri: "Chocolate cake", price: "5$", img: "/img/cake.jpg", type: "Desserts" },
+    { name: "Cake", descri: "Lemon dessert", price: "7.5$", img: "/img/lemon-dessert.webp", type: "Desserts" },
     { name: "Burger", descri: "Big burger", price: "7$", img: "/img/burger.jpg", type: "Lunch" },
     { name: "Steak", descri: "Juicy steak", price: "15$", img: "/img/steak.jpg", type: "A la carte" },
 ]

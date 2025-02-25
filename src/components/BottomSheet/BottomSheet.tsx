@@ -178,7 +178,7 @@ export default function BottomSheet() {
                                     <PrimaryButton
                                         label="Reserve a table"
                                         type="submit"
-                                        className="col-span-2 mt-8 md:sticky bottom-0 col-span-1 bg-yellow-400 text-black rounded-full"
+                                        className="col-span-2 mt-8 md:sticky bottom-0 bg-yellow-400 text-black rounded-full"
                                         disabled={
                                             isSubmitting ||
                                             Object.keys(touched).length === 0 ||
