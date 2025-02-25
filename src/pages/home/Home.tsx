@@ -9,7 +9,7 @@ import Toast from "../../components/Toast/Toast";
 import SheetOpenProvider, { ISheetIsOpenContext, useSheetOpenContext } from "../../provider/SheetOpenProvider/SheetOpenProvider";
 
 function Content() {
-    const { openSheet, isSheetOpen } = useSheetOpenContext() as ISheetIsOpenContext;
+    const { openSheet } = useSheetOpenContext() as ISheetIsOpenContext;
 
     return (
         <WithHeader className="max-w-[900px] px-2">
@@ -26,7 +26,7 @@ function Content() {
                         We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.
                     </p>
 
-                    <PrimaryButton onClick={openSheet} label="Reserve a table" className="mt-12" style={{ 'maxWidth': 'max-content' }} />
+                    <PrimaryButton onClick={()=>{console.log("ito");openSheet()}} label="Reserve a table" className="mt-12" style={{ 'maxWidth': 'max-content' }} />
                 </div>
                 <div className="flex items-center w-[40%] max-w-[180px] translate-y-3">
                     <img className="w-full h-max aspect-square rounded-sm" src="/img/restauranfood_20.webp" alt="foods" />
