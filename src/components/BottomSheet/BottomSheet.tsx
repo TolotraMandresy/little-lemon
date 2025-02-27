@@ -13,8 +13,9 @@ export default function BottomSheet() {
         <Sheet
             isOpen={isSheetOpen}
             onClose={closeSheet}
-            className="ml-auto"
+            className="flex w-full md:ml-auto md:mr-8 md:max-w-[600px]"
             detent="content-height"
+            rootId="main-container"
         >
             <Sheet.Container>
                 <Sheet.Header></Sheet.Header>

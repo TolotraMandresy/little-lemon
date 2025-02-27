@@ -12,7 +12,7 @@ function Content() {
     const { openSheet } = useSheetOpenContext() as ISheetIsOpenContext;
 
     return (
-        <WithHeader className="max-w-[900px] px-2">
+        <WithHeader className="max-w-[900px] xl:max-w-[1200px] px-2">
             <div className="flex flex-row w-full gap-4 justify-between px-4 py-8 relative">
                 <img id="bgimg" src="/img/illustr.webp" className="rounded-md absolute -z-0 top-0 left-0 w-screen h-full" alt="illustration" />
 
@@ -31,13 +31,13 @@ function Content() {
                 <div className="flex items-center w-[40%] max-w-[180px] translate-y-3">
                     <img className="w-full h-max aspect-square rounded-sm" src="/img/restauranfood_20.webp" alt="foods" />
                 </div>
+                <BottomSheet />
             </div>
 
             <CategoryProvider>
                 <MenuCategory />
                 <Meals />
             </CategoryProvider>
-            <BottomSheet />
         </WithHeader>
     )
 }
