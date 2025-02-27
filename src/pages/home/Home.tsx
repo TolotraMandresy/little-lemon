@@ -26,7 +26,7 @@ function Content() {
                         We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.
                     </p>
 
-                    <PrimaryButton onClick={()=>{console.log("ito");openSheet()}} label="Reserve a table" className="mt-12" style={{ 'maxWidth': 'max-content' }} />
+                    <PrimaryButton onClick={openSheet} label="Reserve a table" className="mt-12" style={{ 'maxWidth': 'max-content' }} />
                 </div>
                 <div className="flex items-center w-[40%] max-w-[180px] translate-y-3">
                     <img className="w-full h-max aspect-square rounded-sm" src="/img/restauranfood_20.webp" alt="foods" />

@@ -8,15 +8,50 @@ export interface ICategoryContext {
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
-export const categList = ["Lunch", "Mains", "Desserts", "A la carte", "Specials"]
+export const categList = ["Lunch", "Mains", "Desserts", "A la carte", "Specials"];
 
 const meals: Meal[] = [
-    { name: "Greak Salad", descri: "The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons.", price: "4$", img: "/img/greek-salad.jpg", type: "Specials" },
-    { name: "Pasta", descri: "Delicious pasta", price: "10$", img: "/img/pasta.jpg", type: "Mains" },
-    { name: "Cake", descri: "Lemon dessert", price: "7.5$", img: "/img/lemon-dessert.webp", type: "Desserts" },
-    { name: "Burger", descri: "Big burger", price: "7$", img: "/img/burger.jpg", type: "Lunch" },
-    { name: "Steak", descri: "Juicy steak", price: "15$", img: "/img/steak.jpg", type: "A la carte" },
-]
+  {
+    name: "Greek Salad",
+    descri:
+      "The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons.",
+    price: "4$",
+    img: "/img/greek-salad.jpg",
+    type: "Specials",
+  },
+  {
+    name: "Bruschetta",
+    descri:
+      "Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil. Toppings of tomato, veggies, beans, cured pork, or cheese are examples of variations. In Italy, a brustolina grill is frequently used to create bruschetta.",
+    price: "7.99$",
+    img: "/img/bruschetta.webp",
+    type: "A la carte",
+  },
+  {
+    name: "Grilled Fish",
+    descri:
+      "Perfectly grilled fish, seasoned with herbs and lemon, served with a side of roasted vegetables. A light and healthy lunch option.",
+    price: "20$",
+    img: "/img/fish.webp",
+    type: "Lunch",
+  },
+  {
+    name: "Pasta",
+    descri:
+      "A classic Italian pasta dish, cooked al dente and tossed in a rich tomato sauce with fresh basil and parmesan cheese. A hearty and satisfying main course.",
+    price: "18.99$",
+    img: "/img/pasta.webp",
+    type: "Mains",
+  },
+  {
+    name: "Lemon Dessert",
+    descri:
+      "A tangy and refreshing lemon dessert, featuring a creamy lemon custard layered with a light sponge cake. A perfect sweet ending to your meal.",
+    price: "6.99$",
+    img: "/img/lemon-dessert.webp",
+    type: "Desserts",
+  },
+];
 
 const CategoryContext = createContext<ICategoryContext | null>(null);
 

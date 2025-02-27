@@ -83,11 +83,11 @@ export default function BottomSheet() {
                                 <label className="font-semibold text-lg">Seating:</label>
                                 <div className="flex items-center gap-10">
                                     <label className="flex items-center space-x-2">
-                                        <Field type="radio" name="seating" value="indoor" id="indoor" checked={values.seating == "indoor"} onchange={() => setFieldValue("seating", "indoor")} />
+                                        <Field type="radio" name="seating" value="indoor" id="indoor" checked={values.seating == "indoor"} onChange={() => setFieldValue("seating", "indoor")} />
                                         <span>Indoor</span>
                                     </label>
                                     <label className="flex items-center space-x-2">
-                                        <Field type="radio" name="seating" value="outdoor" id="outdoor" checked={values.seating == "outdoor"} onchange={() => setFieldValue("seating", "outdoor")} />
+                                        <Field type="radio" name="seating" value="outdoor" id="outdoor" checked={values.seating == "outdoor"} onChange={() => setFieldValue("seating", "outdoor")} />
                                         <span>Outdoor</span>
                                     </label>
                                 </div>

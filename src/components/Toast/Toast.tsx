@@ -8,7 +8,7 @@ export interface ToastProps {
     onClose?: () => void;
 }
 
-const Toast = ({ message, duration = 5000, isOpen, onClose }: ToastProps) => {
+const Toast = ({ message, duration = 50000, isOpen, onClose }: ToastProps) => {
     const [isVisible, setIsVisible] = useState(isOpen);
     const [time, setTime] = useState(new Date());
     const toastRef = useRef<HTMLDivElement>(null);
@@ -67,7 +67,7 @@ const Toast = ({ message, duration = 5000, isOpen, onClose }: ToastProps) => {
     return ReactDOM.createPortal(
         <div
             ref={toastRef}
-            className={`flex flex-row w-max gap-8 fixed top-4 left-1/2 transform -translate-x-1/2 bg-c-green-opaque text-white rounded-lg shadow-lg p-4 transition-opacity duration-300 ${isVisible ? 'opacity-100 z-20' : 'opacity-0 -z-10'
+            className={`flex flex-row w-max gap-8 fixed top-4 left-1/2 transform -translate-x-1/2 bg-c-green-opaque text-white rounded-2xl shadow-lg p-4 transition-opacity duration-300 ${isVisible ? 'opacity-100 z-20' : 'opacity-0 -z-10'
                 }`}
             style={{
                 transitionProperty: 'opacity, transform',
