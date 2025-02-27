@@ -5,7 +5,7 @@ export default function Meals() {
     const { filteredMeals } = useCategContext() as ICategoryContext
 
     return (
-        <div className="flex flex-col w-full">
+        <div className="flex flex-row flex-wrap justify-between gap-4 w-full">
             {filteredMeals.map(meal => {
                 return <MealCard meal={meal} key={meal.name}/>
             })}
