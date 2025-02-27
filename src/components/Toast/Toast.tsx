@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
+import { IToastContext, useToastContext } from '../../provider/ToastProvider/ToastProvider';
 
 export interface ToastProps {
     message: string;
@@ -8,7 +9,9 @@ export interface ToastProps {
     onClose?: () => void;
 }
 
-const Toast = ({ message, duration = 50000, isOpen, onClose }: ToastProps) => {
+const Toast = ({ duration = 5000, onClose }: ToastProps) => {
+    const { isOpen, closeToast, message } = useToastContext() as IToastContext;
+
     const [isVisible, setIsVisible] = useState(isOpen);
     const [time, setTime] = useState(new Date());
     const toastRef = useRef<HTMLDivElement>(null);
@@ -21,10 +24,12 @@ const Toast = ({ message, duration = 50000, isOpen, onClose }: ToastProps) => {
         }
     }, [isOpen]);
 
-    useEffect(() => {
+    useEffect(() => {      
         if (isVisible) {
             const hideTimer = setTimeout(() => {
                 setIsVisible(false);
+                closeToast()
+
                 if (onClose) {
                     onClose();
                 }
@@ -54,6 +59,8 @@ const Toast = ({ message, duration = 50000, isOpen, onClose }: ToastProps) => {
         const currentY = e.touches[0].clientY;
         if (startY - currentY > 50) { // Adjust the threshold as needed
             setIsVisible(false);
+            closeToast();
+
             if (onClose) {
                 onClose();
             }
@@ -67,7 +74,7 @@ const Toast = ({ message, duration = 50000, isOpen, onClose }: ToastProps) => {
     return ReactDOM.createPortal(
         <div
             ref={toastRef}
-            className={`flex flex-row w-max gap-8 fixed top-4 left-1/2 transform -translate-x-1/2 bg-c-green-opaque text-white rounded-2xl shadow-lg p-4 transition-opacity duration-300 ${isVisible ? 'opacity-100 z-20' : 'opacity-0 -z-10'
+            className={`flex flex-row w-max gap-8 fixed top-4 left-1/2 transform -translate-x-1/2 bg-c-green-opaque text-white rounded-2xl shadow-lg p-4 transition-opacity duration-300 ${isVisible ? 'opacity-100 z-[9999]' : 'opacity-0 -z-10'
                 }`}
             style={{
                 transitionProperty: 'opacity, transform',

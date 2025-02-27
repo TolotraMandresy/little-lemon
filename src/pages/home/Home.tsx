@@ -7,6 +7,7 @@ import Meals from "./sections/Meals/Meals";
 import BottomSheet from "../../components/BottomSheet/BottomSheet";
 import Toast from "../../components/Toast/Toast";
 import SheetOpenProvider, { ISheetIsOpenContext, useSheetOpenContext } from "../../provider/SheetOpenProvider/SheetOpenProvider";
+import ToastProvider from "../../provider/ToastProvider/ToastProvider";
 
 function Content() {
     const { openSheet } = useSheetOpenContext() as ISheetIsOpenContext;
@@ -31,13 +32,14 @@ function Content() {
                 <div className="flex items-center w-[40%] max-w-[180px] lg:max-w-[unset] lg:max-h-[300px] translate-y-3 ">
                     <img className="ml-auto w-full h-max lg:h-full lg:w-auto aspect-square rounded-sm" src="/img/restauranfood_20.webp" alt="foods" />
                 </div>
-                <BottomSheet />
             </div>
 
             <CategoryProvider>
                 <MenuCategory />
                 <Meals />
             </CategoryProvider>
+
+            <BottomSheet />
         </WithHeader>
     )
 }
@@ -45,11 +47,13 @@ function Content() {
 export default function Home() {
     return (
         <>
-            <SheetOpenProvider>
-                <Content />
-            </SheetOpenProvider>
+            <ToastProvider>
+                <SheetOpenProvider>
+                    <Content />
+                </SheetOpenProvider>
 
-            <Toast isOpen={true} message="We registered your reservation." />
+                <Toast isOpen={true} message="We registered your reservation." />
+            </ToastProvider>
         </>
     )
 }

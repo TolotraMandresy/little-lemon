@@ -13,7 +13,7 @@ export default function Category({ label, addCategory, removeCategory, isChecked
     return (
         <>
             <input type="checkbox" name={label} id={`${label}-checkbox`} className="hidden" checked={checked} onChange={checkHandler} />
-            <label htmlFor={`${label}-checkbox`} className={`select-none flex w-max h-max text-nowrap px-3 py-1 rounded-full font-medium ${checked ? "bg-c-green text-c-font-secondary" : "bg-c-grey-light text-c-green"}`}>{label}</label>
+            <label htmlFor={`${label}-checkbox`} className={`select-none flex w-max h-max text-nowrap m-0.5 px-3 py-1 rounded-full font-medium transition-transform hover:scale-105 hover:outline hover:outline-c-green ${checked ? "bg-c-green text-c-font-secondary" : "bg-c-grey-light text-c-green"}`}>{label}</label>
         </>
     )
 }
