@@ -28,7 +28,7 @@ export default function Login({ onLogin }: { onLogin: () => void }) {
 
                             return error;
                         }}
-                        onSubmit={(values, formikHelpers) => {
+                        onSubmit={(_, formikHelpers) => {
                             setTimeout(() => {
                                 formikHelpers.setSubmitting(false);
                                 onLogin();

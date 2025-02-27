@@ -51,7 +51,7 @@ export default function Signup({ onSignup }: { onSignup: () => void }) {
 
                             return error;
                         }}
-                        onSubmit={(values, formikHelpers) => {
+                        onSubmit={(_, formikHelpers) => {
                             setTimeout(() => {
                                 formikHelpers.setSubmitting(false);
                                 onSignup();
