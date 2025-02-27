@@ -5,12 +5,13 @@ import './BottomSheet.css'
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
 import { ISheetIsOpenContext, useSheetOpenContext } from "../../provider/SheetOpenProvider/SheetOpenProvider";
 import { IToastContext, useToastContext } from "../../provider/ToastProvider/ToastProvider";
+import { isPast, parseISO } from "date-fns";
 
 export default function BottomSheet() {
     const { isSheetOpen, closeSheet } = useSheetOpenContext() as ISheetIsOpenContext;
     const { openToast } = useToastContext() as IToastContext
 
-    function onSubmit(){
+    function onSubmit() {
         closeSheet()
         openToast("We registered your reservation.")
     }
@@ -55,7 +56,7 @@ export default function BottomSheet() {
                                         | "specialReq"
                                     )[]
                                 ).forEach((input) => {
-                                    if (input == "specialReq") return
+                                    if (input === "specialReq") return;
 
                                     if (!values[input]) error[input] = "It is required!";
                                     else if (
@@ -66,6 +67,19 @@ export default function BottomSheet() {
                                     )
                                         error.email = "Invalid email address";
                                 });
+
+                                if (values.date && values.time) {
+                                    const selectedDateTime = parseISO(`${values.date}T${values.time}:00`);
+                                    
+                                    if (isPast(selectedDateTime)) {
+                                        error.date = "Date and time cannot be in the past.";
+                                        error.time = "Date and time cannot be in the past.";
+                                    }
+                                }
+
+                                if (values.guests && (isNaN(parseInt(values.guests)) || parseInt(values.guests) <= 0)) {
+                                    error.guests = "Guests must be a positive number.";
+                                }
 
                                 return error;
                             }}
