@@ -39,7 +39,7 @@ export default function Header({className} : {className?: string}) {
                     <a href="#">Contact</a>
                 </div>
 
-                <PrimaryButton className="max-w-[500px]! mx-auto" label="Sign out"></PrimaryButton>
+                <PrimaryButton className="max-w-[400px]! mx-auto" label="Sign out"></PrimaryButton>
             </nav>
         </>
     )
