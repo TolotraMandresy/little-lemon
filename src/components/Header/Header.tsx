@@ -1,16 +1,16 @@
-import { useState } from "react"
-import './Header.css'
-import PrimaryButton from "../PrimaryButton/PrimaryButton"
+import { useState } from "react";
+import './Header.css';
+import PrimaryButton from "../PrimaryButton/PrimaryButton";
 
-export default function Header({className} : {className?: string}) {
-    const [isOpen, setIsOpen] = useState(false)
+export default function Header({ className, onLogout }: { className?: string, onLogout: () => void }) {
+    const [isOpen, setIsOpen] = useState(false);
 
     function open() {
-        setIsOpen(true)
+        setIsOpen(true);
     }
 
     function close() {
-        setIsOpen(false)
+        setIsOpen(false);
     }
 
     return (
@@ -29,7 +29,7 @@ export default function Header({className} : {className?: string}) {
                 </button>
             </header>
 
-            <nav className={`flex flex-col justify-between w-full h-lvh p-8 absolute text-c-font-secondary bg-c-green-opaque z-20 ${ isOpen ? 'isOpen' : '' }`}>
+            <nav className={`flex flex-col justify-between w-full h-lvh p-8 absolute text-c-font-secondary bg-c-green-opaque z-20 ${isOpen ? 'isOpen' : ''}`}>
                 <button className="ml-auto text-xl" onClick={close}>&times;</button>
                 
                 <div className="flex flex-col gap-4 text-center">
@@ -39,8 +39,8 @@ export default function Header({className} : {className?: string}) {
                     <a href="#">Contact</a>
                 </div>
 
-                <PrimaryButton className="max-w-[400px]! mx-auto" label="Sign out"></PrimaryButton>
+                <PrimaryButton className="max-w-[400px]! mx-auto" label="Sign out" onClick={onLogout}></PrimaryButton>
             </nav>
         </>
-    )
+    );
 }

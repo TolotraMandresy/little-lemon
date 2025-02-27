@@ -9,11 +9,11 @@ import Toast from "../../components/Toast/Toast";
 import SheetOpenProvider, { ISheetIsOpenContext, useSheetOpenContext } from "../../provider/SheetOpenProvider/SheetOpenProvider";
 import ToastProvider from "../../provider/ToastProvider/ToastProvider";
 
-function Content() {
+function Content({onLogout}: {onLogout: () => void}) {
     const { openSheet } = useSheetOpenContext() as ISheetIsOpenContext;
 
     return (
-        <WithHeader className="max-w-[900px] xl:max-w-[1200px] px-2">
+        <WithHeader onLogout={onLogout} className="max-w-[900px] xl:max-w-[1200px] px-2">
             <div className="flex flex-row w-full gap-4 justify-around px-4 py-8 relative md:px-8 md:py-16">
                 <img id="bgimg" src="/img/illustr.webp" className="rounded-md absolute -z-0 top-0 left-0 w-screen h-full" alt="illustration" />
 
@@ -44,12 +44,12 @@ function Content() {
     )
 }
 
-export default function Home() {
+export default function Home({onLogout}: {onLogout: () => void}) {
     return (
         <>
             <ToastProvider>
                 <SheetOpenProvider>
-                    <Content />
+                    <Content onLogout={onLogout}/>
                 </SheetOpenProvider>
 
                 <Toast isOpen={true} message="We registered your reservation." />
