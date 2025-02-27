@@ -84,14 +84,7 @@ export default function BottomSheet() {
                                 return error;
                             }}
                             onSubmit={(
-                                values: {
-                                    seating: string;
-                                    date: string;
-                                    time: string;
-                                    guests: string;
-                                    email: string;
-                                    specialReq: string;
-                                },
+                                _,
                                 formikHelpers
                             ) => {
                                 setTimeout(() => {
